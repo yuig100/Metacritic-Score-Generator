@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Nota Metacritic</title>
+  <link rel="stylesheet" href="folder/style.css">
+  <link rel="fonte" href="folder/proximanova_regular.ttf">
+</head>
+<body>
+
+  <h1>Gerador de Notas Metacritic</h1>
+
+  <p style="margin-bottom: 20px;">
+    Cores padrão: <strong style="color:#00ce7a;">Verde</strong> para notas 75 ou maior, 
+    <strong style="color:#ffbd3f;">Amarelo</strong> entre 50 e 74, e 
+    <strong style="color:#ff6874;">Vermelho</strong> para abaixo de 50.
+  </p>
+
+  <div class="controls">
+    <label for="nota">Nota:</label>
+    <input type="number" id="nota" min="0" max="100" value="75">
+
+    <div class="predefinidas">
+        <span>Cores padrão da fonte:</span>
+        <button class="cor-btn" style="background-color: #222222;" onclick="setCorFonte('#222222')"></button>
+        <button class="cor-btn" style="background-color: #ffffff;" onclick="setCorFonte('#ffffff')"></button>
+        <label for="cor-fonte">Cor da fonte:</label>
+        <input type="color" id="cor-fonte" value="#222222">
+    </div>
+    
+    <div class="predefinidas">
+      <span>Cores padrão:</span>
+      <button class="cor-btn" style="background-color: #00ce7a;" onclick="setCor('#00ce7a')"></button>
+      <button class="cor-btn" style="background-color: #ffbd3f;" onclick="setCor('#ffbd3f')"></button>
+      <button class="cor-btn" style="background-color: #ff6874;" onclick="setCor('#ff6874')"></button>
+      <label for="cor">Cor personalizada:</label>
+      <input type="color" id="cor" value="#00cc66">
+    </div>
+    
+    <label for="tamanho">Tamanho (px):</label>
+    <input type="number" id="tamanho" value="200" min="50" max="1000">
+    <button onclick="resetarCorAutomatica()">Resetar</button>
+    <button onclick="atualizarPreview()">Atualizar</button>
+    <button onclick="baixarImagem()">Baixar Imagem</button>
+  </div>
+
+  <div id="preview"></div>
+
+  <canvas id="canvas" width="200" height="200" style="display: none;"></canvas>
+
+  <script src="folder/script.js"></script>
+</body>
+</html>
